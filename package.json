@@ -1,0 +1,21 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "TEMPLATE",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    
+    "preinstallAll": "install --save-dev html-webpack-plugin",
+    "installAll": "install --save-dev style-loader css-loader",
+    "postinstallAll": "install --save-dev webpack-dev-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": "true",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.6.3",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
