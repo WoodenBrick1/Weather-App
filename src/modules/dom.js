@@ -17,7 +17,7 @@ export const domInput = (function(){
 
         if (metric.checked) {
             return "metric";
-        } else {
+        } else if (us.checked){
             return "us";
         }
     }
@@ -30,7 +30,7 @@ export const domInput = (function(){
 
 export const domHandler = (function() {
 
-    const getData = () => {
+    const getValues = () => {
 
         const country = domInput.getCountry();
         const unitGroup = domInput.getUnit();
@@ -45,6 +45,6 @@ export const domHandler = (function() {
     }
 
     return {
-        getData,
+        getValues,
     }
 })();

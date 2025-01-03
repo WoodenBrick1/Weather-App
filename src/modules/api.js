@@ -10,7 +10,7 @@ export async function getData (country, unitGroup) {
         })
 
         if (!response.ok) {
-            console.log("run like a b");
+
             return;
         }
          const data = response.json();
