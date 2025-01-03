@@ -13,11 +13,11 @@ export const domInput = (function(){
     const getUnit = () => {
 
         const metric = document.getElementById("metric");
-        const us = document.getElementById("us");
+
 
         if (metric.checked) {
             return "metric";
-        } else if (us.checked){
+        } else {
             return "us";
         }
     }
@@ -37,7 +37,7 @@ export const domHandler = (function() {
 
         getData(country, unitGroup).then(data => {
             renderData(data);
-        })
+        }).catch(() => {console.log("INVALID")});
     }
 
     const renderData = (data) => {

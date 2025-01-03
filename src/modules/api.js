@@ -11,7 +11,7 @@ export async function getData (country, unitGroup) {
 
         if (!response.ok) {
 
-            return;
+            return Promise.reject("INVALID");
         }
          const data = response.json();
 
