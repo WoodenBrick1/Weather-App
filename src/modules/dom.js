@@ -1,6 +1,6 @@
 import {getData} from "./api";
 import {format} from "../../node_modules/date-fns";
-
+import {getImage} from "./getImage";
 
 export const domInput = (function(){
 
@@ -61,7 +61,7 @@ export const domHandler = (function() {
             dayName.classList.add("dayName");
             dayName.textContent = format(days[i].datetime, 'E');
 
-            console.log(days[i]);
+           // console.log(days[i]);
 
             // Condition
             const condition = document.createElement("p");
@@ -69,17 +69,33 @@ export const domHandler = (function() {
             condition.textContent = days[i].conditions;
 
      
+            // Logo
             const img = document.createElement("img");
-            img.classList.add(condition.textContent.split(" ").join("-") + "-img");
+            img.classList.add("logo");
+            img.src = getImage(days[i].icon);
 
+
+            // Temperature Text
+            const tempText = document.createElement("p");
+            tempText.classList.add("tempText");
+            tempText.textContent = "Temperature:"
             // Temperature
             const temp = document.createElement("p");
             temp.classList.add("temp");
             temp.textContent = days[i].temp;
 
+            if (domInput.getUnit() == "metric") {
+                temp.textContent += "°C";
+            } else if (domInput.getUnit() == "us") {
+                temp.textContent += "°F";
+            }
+
+
+
             dayContainer.appendChild(dayName);
             dayContainer.appendChild(condition);
             dayContainer.appendChild(img);
+            dayContainer.appendChild(tempText);
             dayContainer.appendChild(temp);
 
             daysContainer.appendChild(dayContainer);
