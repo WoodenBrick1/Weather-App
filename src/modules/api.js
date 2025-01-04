@@ -15,7 +15,6 @@ export async function getData (country, unitGroup) {
         }
          const data = response.json();
 
-        console.log(data);
         return data;
     } catch(error) {
         console.log("AHHHHHH");

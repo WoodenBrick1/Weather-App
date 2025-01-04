@@ -85,3 +85,8 @@ body {
     width: 13%;
 
 }
+
+
+.Partially-cloudy-img {
+    background-image: url("./weather-logos/partially-cloudly.png");
+}

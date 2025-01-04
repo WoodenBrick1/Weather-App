@@ -1,4 +1,5 @@
-import {getData} from "./api"
+import {getData} from "./api";
+import {format} from "../../node_modules/date-fns";
 
 
 export const domInput = (function(){
@@ -55,9 +56,32 @@ export const domHandler = (function() {
             const dayContainer = document.createElement("div");
             dayContainer.classList.add("dayContainer");
 
+            // The Day
+            const dayName = document.createElement("p");
+            dayName.classList.add("dayName");
+            dayName.textContent = format(days[i].datetime, 'E');
+
+            console.log(days[i]);
+
+            // Condition
             const condition = document.createElement("p");
+            condition.classList.add("condition");
             condition.textContent = days[i].conditions;
+
+     
+            const img = document.createElement("img");
+            img.classList.add(condition.textContent.split(" ").join("-") + "-img");
+
+            // Temperature
+            const temp = document.createElement("p");
+            temp.classList.add("temp");
+            temp.textContent = days[i].temp;
+
+            dayContainer.appendChild(dayName);
             dayContainer.appendChild(condition);
+            dayContainer.appendChild(img);
+            dayContainer.appendChild(temp);
+
             daysContainer.appendChild(dayContainer);
 
         }
