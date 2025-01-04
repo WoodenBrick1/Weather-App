@@ -45,18 +45,63 @@ export const domHandler = (function() {
     const renderData = (data) => {
         infoContainer.innerHTML = "";
 
+        console.log(data);
+
+        // Timezone
+        
+        const timezoneContainer = document.createElement("div");
+        timezoneContainer.id = "timezone-container";
+
+
+        const timezoneText = document.createElement("p");
+        timezoneText.id = "timezone-text";
+        timezoneText.textContent = "Timezone:";
+
+        const timezone = document.createElement("p");
+        timezone.id = "timezone";
+        timezone.textContent = data.timezone;
+
+
+        timezoneContainer.appendChild(timezoneText);
+        timezoneContainer.appendChild(timezone);
+        infoContainer.appendChild(timezoneContainer);
+      
+
+        // Description
+
+        const descriptionContainer = document.createElement("div");
+        descriptionContainer.id = "description-container";
+
+
+        const descriptionText = document.createElement("p");
+        descriptionText.id = "description-text";
+        descriptionText.textContent = "Description:";
+
+        const description = document.createElement("p");
+        description.id = "description";
+        description.textContent = data.description;
+
+
+        descriptionContainer.appendChild(descriptionText);
+        descriptionContainer.appendChild(description);
+        infoContainer.appendChild(descriptionContainer);
+        // Days
+
         const days = data.days;
 
         const daysContainer = document.createElement("div");
         daysContainer.id = "days-container";
         
+
         
+        
+
         for (let i = 0; i < 7; i++) {
            
             const dayContainer = document.createElement("div");
             dayContainer.classList.add("dayContainer");
 
-            // The Day
+            // The Day Name
             const dayName = document.createElement("p");
             dayName.classList.add("dayName");
             dayName.textContent = format(days[i].datetime, 'E');
@@ -103,7 +148,6 @@ export const domHandler = (function() {
         }
 
        
-
         infoContainer.appendChild(daysContainer);
     }
 
