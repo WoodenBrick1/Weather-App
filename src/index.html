@@ -10,15 +10,28 @@
 <body>
 
 
-    <input type="text" id="country">
+    <div id="inputs">
+        <input type="text" id="country" placeholder="Country">
 
-    <label for="metric">Celsius</label>
-    <input type="radio" id="metric" name="unit" checked="checked" value="metric">
 
-    <label for="us">Fahrenheit</label>
-    <input type="radio" id="us" name="unit" value="us">
+        <div id="radio-buttons">
 
-    <button id="get-data">Get Data</button>
+            <section>
+                <label for="metric">Celsius</label>
+                <input type="radio" id="metric" name="unit" checked="checked" value="metric">
+            </section>
+            <section>
+                <label for="us">Fahrenheit</label>
+                <input type="radio" id="us" name="unit" value="us">
+            </section>
+        </div>
+
+        <button id="get-data">Get Data</button>
+    </div>
+
+    <div id="info">
+
+    </div>
 </body>
 
 </html>
