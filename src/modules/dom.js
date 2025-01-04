@@ -30,6 +30,7 @@ export const domInput = (function(){
 
 export const domHandler = (function() {
 
+    const infoContainer = document.getElementById("info");
     const getValues = () => {
 
         const country = domInput.getCountry();
@@ -37,13 +38,39 @@ export const domHandler = (function() {
 
         getData(country, unitGroup).then(data => {
             renderData(data);
-        }).catch(() => {console.log("INVALID")});
+        }).catch(() => {displayError()});
     }
 
     const renderData = (data) => {
-        console.log(data);
+        infoContainer.innerHTML = "";
+
+        const days = data.days;
+
+        const daysContainer = document.createElement("div");
+        daysContainer.id = "days-container";
+        
+        
+        for (let i = 0; i < 7; i++) {
+           
+            const dayContainer = document.createElement("div");
+            dayContainer.classList.add("dayContainer");
+
+            const condition = document.createElement("p");
+            condition.textContent = days[i].conditions;
+            dayContainer.appendChild(condition);
+            daysContainer.appendChild(dayContainer);
+
+        }
+
+       
+
+        infoContainer.appendChild(daysContainer);
     }
 
+
+    const displayError = () => {
+
+    }
     return {
         getValues,
     }
