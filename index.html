@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+<script defer src="main.js"></script></head>
+
+<body>
+
+
+    <div id="inputs">
+        <input type="text" id="country" placeholder="Country">
+
+
+        <div id="radio-buttons">
+
+            <section>
+                <label for="metric">Celsius</label>
+                <input type="radio" id="metric" name="unit" checked="checked" value="metric">
+            </section>
+            <section>
+                <label for="us">Fahrenheit</label>
+                <input type="radio" id="us" name="unit" value="us">
+            </section>
+        </div>
+
+        <button id="get-data">Get Data</button>
+    </div>
+
+    <div id="info">
+
+        <div id="days-container"></div>
+    </div>
+
+    <div id="footer"><a href="https://www.freepik.com/search">Icon by Freepik</a></div>
+</body>
+
+</html>
